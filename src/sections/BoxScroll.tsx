@@ -3,13 +3,13 @@ import React, { useRef, useState, useEffect } from "react";
 import { ArrowDown } from "lucide-react";
 
 // --- Assets ---
-import aiCallingVideo from "@/assets/vids/AI Calling 2.mov";
-import chatflowVideo from "@/assets/vids/Chatbot Video 2.mov";
-import webViewVideo from "@/assets/vids/Web view 2.mov";
-import ctwaVideo from "@/assets/vids/CTWA Video 2.mov";
-import commerceVideo from "@/assets/vids/WA Commerce Video 2.mov";
-import campaignsVideo from "@/assets/vids/WA Campaign 2.mov";
-import crmVideo from "@/assets/vids/CRM Video from WA Videos.mov";
+import aiCallingVideo from "@/assets/vids/AICalling2.mov";
+import chatflowVideo from "@/assets/vids/ChatbotVideo2.mov";
+import webViewVideo from "@/assets/vids/WebView2.mov";
+import ctwaVideo from "@/assets/vids/CTWAVideo2.mov";
+import commerceVideo from "@/assets/vids/WACommerceVideo2.mov";
+import campaignsVideo from "@/assets/vids/WACampaign2.mov";
+import crmVideo from "@/assets/vids/CRMVideofromWAVideos.mov";
 
 const VIDEOS = [
   aiCallingVideo,
