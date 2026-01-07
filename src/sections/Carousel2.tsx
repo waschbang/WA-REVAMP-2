@@ -85,12 +85,28 @@ const Carousel2 = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [scrollProgress, setScrollProgress] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
+    const [isWindows, setIsWindows] = useState(false);
 
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        // Detect Windows OS
+        const checkWindows = () => {
+            const userAgent = window.navigator.userAgent.toLowerCase();
+            const platform = window.navigator.platform.toLowerCase();
+            setIsWindows(
+                userAgent.includes('win') || 
+                platform.includes('win') ||
+                userAgent.includes('windows')
+            );
+        };
         checkMobile();
+        checkWindows();
         window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
+        window.addEventListener("resize", checkWindows);
+        return () => {
+            window.removeEventListener("resize", checkMobile);
+            window.removeEventListener("resize", checkWindows);
+        };
     }, []);
 
     useEffect(() => {
@@ -121,9 +137,12 @@ const Carousel2 = () => {
     const maxTranslate = totalWidth - (viewportWidth - leftPadding);
     const translateX = -scrollProgress * maxTranslate;
 
+    // Use 132vh for Windows to prevent cropping, 100vh for Mac
+    const stickyHeight = isWindows ? "132vh" : "100vh";
+
     return (
         <section ref={containerRef} style={{ height: `${totalCards * 70}vh`, backgroundColor: "#F4F4F4" }}>
-            <div style={{ position: "sticky", top: 0, height: "100vh", overflow: "hidden", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            <div style={{ position: "sticky", top: 0, height: stickyHeight, overflow: "hidden", display: "flex", flexDirection: "column", justifyContent: "center" }}>
 
                 <h2 style={{ fontFamily: "'Sora', sans-serif", fontSize: isMobile ? "32px" : "48px", fontWeight: 700, textAlign: "center", marginBottom: "50px", color: "#171717" }}>
                     Explore WhatsApp in Action

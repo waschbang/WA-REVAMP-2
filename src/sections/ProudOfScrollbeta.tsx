@@ -18,7 +18,7 @@ const cards = [
 
 export default function ProudOfScrollbeta() {
     return (
-        <section id="work" className="font-sora relative bg-white pb-0">
+        <section id="work" className="font-sora relative bg-white pb-0 isolate" style={{ zIndex: 1 }}>
             {/* Header */}
             <div className="pt-8 md:pt-32 pb-6 text-center bg-white">
                 <h1 className="section-header">

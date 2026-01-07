@@ -26,8 +26,8 @@ const HowItWorksNew = () => {
     return (
         <section
             id="partnerships"
-            className="flex flex-col items-center justify-center py-8 md:py-12 px-4"
-            style={{ backgroundColor: "#ffffff" }}
+            className="flex flex-col items-center justify-center py-8 md:py-12 px-4 isolate"
+            style={{ backgroundColor: "#ffffff", position: "relative", zIndex: 2 }}
         >
             {/* Heading */}
             <h2 className="section-header text-center mb-10 md:mb-14">

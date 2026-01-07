@@ -321,8 +321,9 @@ const StackBox: React.FC<{
   }
 
   // Anchor Position - closer to phone
-  const anchorStyle = isLeft ? { right: "105%" } : { left: "105%" };
-
+  const anchorStyle = isLeft
+    ? { right: "calc(100% + 24px)", transformOrigin: "right center" }
+    : { left: "calc(100% + 24px)", transformOrigin: "left center" };
   return (
     <div
       className="absolute w-[240px] md:w-[280px] lg:w-[340px] shadow-xl origin-top gpu-layer"
@@ -396,22 +397,37 @@ export default function LifeSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [rawScrollProgress, setRawScrollProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isWindows, setIsWindows] = useState(false);
 
   useEffect(() => {
     let rafId: number;
     let lastProgress = 0;
 
+    // Detect Windows OS
+    const checkWindows = () => {
+      const userAgent = window.navigator.userAgent.toLowerCase();
+      const platform = window.navigator.platform.toLowerCase();
+      setIsWindows(
+        userAgent.includes('win') ||
+        platform.includes('win') ||
+        userAgent.includes('windows')
+      );
+    };
+    checkWindows();
+
     const handleScroll = () => {
       if (!sectionRef.current) return;
 
       const rect = sectionRef.current.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
+      // Use document.documentElement.clientHeight for more accurate viewport height on Windows
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
       const sectionHeight = rect.height;
 
       const scrolled = -rect.top;
       const scrollableDistance = sectionHeight - viewportHeight;
 
-      let progress = scrolled / scrollableDistance;
+      // Prevent division by zero and ensure valid progress
+      let progress = scrollableDistance > 0 ? scrolled / scrollableDistance : 0;
       progress = Math.max(0, Math.min(1, progress));
 
       // Very smooth interpolation for consistent animation speed
@@ -481,10 +497,21 @@ export default function LifeSection() {
     <section
       id="services"
       ref={sectionRef}
-      className="relative w-full bg-[#F4F4F4] -mt-20"
-      style={{ height: "900vh" }}
+      className="relative w-full bg-[#F4F4F4] isolate border-t border-transparent"
+      style={{
+        height: "900vh",
+        zIndex: 1,
+        position: "relative",
+        isolation: "isolate"
+      }}
     >
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-start md:justify-center md:pt-0 overflow-hidden">
+      {/* Use 132dvh for Windows to prevent cropping, 100dvh for Mac */}
+      <div className="sticky top-0 w-full flex flex-col items-center justify-start md:justify-center md:pt-0 overflow-hidden bg-[#F4F4F4]"
+        style={{
+          height: isWindows ? "139dvh" : "100dvh",
+          minHeight: "100vh"
+        }}
+      >
         {/* --- Header Layer --- */}
         <div
           className="absolute top-[5vh] md:top-[14vh] w-full text-center z-10 px-2 md:px-4 origin-center"

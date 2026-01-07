@@ -5,7 +5,11 @@
 /* WhatsApp Marketing Landing Page Design System */
 
 @layer base {
+
   /* Sora font is linked in index.html for consistent local/live loading */
+  :root {
+    --vh: 1vh;
+  }
 
   :root {
     /* Beige primary background */
@@ -160,6 +164,24 @@
     font-size: 16px;
     /* base scaling for rem-based clamps */
     overflow-x: clip;
+    /* Windows scrollbar handling - prevent layout shift */
+    scrollbar-gutter: stable;
+    /* Ensure proper height calculation on Windows */
+    height: 100%;
+    width: 100%;
+  }
+
+  /* Windows-specific fixes for viewport units and scrollbar */
+  @supports (height: 100svh) {
+    :root {
+      --safe-vh: 1svh;
+    }
+  }
+
+  @supports not (height: 100svh) {
+    :root {
+      --safe-vh: 1vh;
+    }
   }
 
   body {
@@ -171,6 +193,9 @@
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     overflow-x: clip;
+    /* Windows-specific: ensure proper height calculation */
+    min-height: 100%;
+    position: relative;
   }
 
   /* Ensure proper scaling at all zoom levels */
