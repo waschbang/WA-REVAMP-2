@@ -1,0 +1,452 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* WhatsApp Marketing Landing Page Design System */
+
+@layer base {
+  /* Sora font is linked in index.html for consistent local/live loading */
+
+  :root {
+    /* Beige primary background */
+    --background: 40 40% 96%;
+    --foreground: 222.2 84% 4.9%;
+
+    /* Premium Neutral Scale */
+    --neutral-50: 0 0% 98%;
+    --neutral-100: 0 0% 96%;
+    --neutral-200: 0 0% 90%;
+    --neutral-300: 0 0% 83%;
+    --neutral-400: 0 0% 64%;
+    --neutral-500: 0 0% 45%;
+    --neutral-600: 0 0% 32%;
+    --neutral-700: 0 0% 25%;
+    --neutral-800: 0 0% 15%;
+    --neutral-900: 0 0% 9%;
+
+    /* Premium Apple-Inspired Colors */
+    --whatsapp-green: 142 70% 49%;
+    --whatsapp-green-light: 142 45% 85%;
+    --whatsapp-green-dark: 142 85% 35%;
+
+    /* Premium Brand Palette */
+    --brand-primary: 142 70% 49%;
+    --brand-secondary: 210 15% 15%;
+    --brand-accent: 45 93% 47%;
+
+    /* Success & Trust Colors */
+    --success: 142 76% 36%;
+    --success-light: 142 45% 85%;
+
+    /* Gradients adapted to beige theme */
+    --gradient-hero: linear-gradient(135deg, hsl(40 40% 97%), hsl(40 38% 94%));
+    --gradient-cta: linear-gradient(135deg, hsl(142 85% 35%), hsl(142 70% 49%));
+    --gradient-section: linear-gradient(180deg, hsl(40 40% 96%), hsl(40 40% 96%));
+    --gradient-premium: linear-gradient(135deg, hsl(40 40% 98%) 0%, hsl(40 40% 95%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(40 30% 98%) 100%);
+
+    /* Premium Shadows & Effects */
+    --shadow-premium: 0 1px 3px hsl(0 0% 0% / 0.04), 0 1px 2px hsl(0 0% 0% / 0.06);
+    --shadow-premium-lg: 0 4px 6px hsl(0 0% 0% / 0.05), 0 2px 4px hsl(0 0% 0% / 0.03);
+    --shadow-premium-xl: 0 10px 15px hsl(0 0% 0% / 0.04), 0 4px 6px hsl(0 0% 0% / 0.02);
+    --shadow-whatsapp: 0 4px 20px hsl(142 70% 49% / 0.15);
+    --shadow-cta: 0 8px 32px hsl(142 85% 35% / 0.25);
+    --transition-premium: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 142 70% 49%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 70% 49%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* On very small screens, prefer a solid color to avoid gradient tearing */
+  @media (max-width: 640px) {
+    .premium-gradient {
+      background: hsl(40 40% 96%) !important;
+    }
+  }
+
+  /* Hide native scrollbars (used for horizontal subnav) */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 142 70% 49%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    /* base scaling for rem-based clamps */
+    overflow-x: clip;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Sora';
+    font-weight: 600;
+    /* SemiBold for smaller fonts */
+    /* Prevent layout breaks at different zoom levels */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-x: clip;
+  }
+
+  /* Ensure proper scaling at all zoom levels */
+  * {
+    box-sizing: border-box;
+  }
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Uniform heading style */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold text-neutral-900;
+    font-family: 'Sora';
+    letter-spacing: 0.01em;
+    /* 1% letter spacing */
+  }
+
+  /* Section header - Sora SemiBold 48px, auto line-height, 1% letter spacing */
+  .section-header {
+    font-family: 'Sora', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+    /* Bold */
+    font-size: 48px;
+    line-height: auto;
+    letter-spacing: 0.01em;
+    /* 1% */
+    color: #171717;
+  }
+
+  @media (max-width: 768px) {
+    .section-header {
+      font-size: 32px;
+    }
+  }
+
+  /* Mobile vertical rhythm and anchor offset */
+  @media (max-width: 640px) {
+    html {
+      font-size: 18px;
+    }
+
+    /* Add comfortable space inside sections on small screens */
+    section {
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      scroll-margin-top: 80px;
+    }
+
+    /* Add space between consecutive sections */
+    section+section {
+      margin-top: 0;
+    }
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .cta-gradient {
+    background: var(--gradient-cta);
+  }
+
+  .section-gradient {
+    background: var(--gradient-section);
+  }
+
+  .premium-gradient {
+    background: var(--gradient-premium);
+    /* Fallback color to match gradient base to avoid edge seams */
+    background-color: hsl(40 40% 96%);
+    position: relative;
+    /* enable pseudo-element below */
+    isolation: isolate;
+    /* keep ::before below content reliably */
+    /* Nudge GPU compositing to avoid subtle banding on some devices */
+    transform: translateZ(0);
+  }
+
+  /* Extend background slightly to prevent 1px tearing on some mobile GPUs */
+  .premium-gradient::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    /* overscan */
+    background: var(--gradient-premium);
+    z-index: -1;
+    /* ensure it's behind all content */
+    pointer-events: none;
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .premium-shadow {
+    box-shadow: var(--shadow-premium);
+  }
+
+  .premium-shadow-lg {
+    box-shadow: var(--shadow-premium-lg);
+  }
+
+  .premium-shadow-xl {
+    box-shadow: var(--shadow-premium-xl);
+  }
+
+  .whatsapp-shadow {
+    box-shadow: var(--shadow-whatsapp);
+  }
+
+  .cta-shadow {
+    box-shadow: var(--shadow-cta);
+  }
+
+  .premium-transition {
+    transition: var(--transition-premium);
+  }
+
+  /* Force GPU compositing to mitigate mobile tearing/banding */
+  .gpu-layer {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .smooth-transition {
+    transition: var(--transition-smooth);
+  }
+
+  .bounce-transition {
+    transition: var(--transition-bounce);
+  }
+
+  .premium-card {
+    @apply bg-white premium-shadow-lg rounded-3xl border border-neutral-100 hover:premium-shadow-xl premium-transition hover:-translate-y-1;
+  }
+
+  .premium-button {
+    @apply font-medium tracking-tight premium-transition hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .premium-text {
+    @apply text-neutral-800 leading-relaxed;
+  }
+
+  .premium-heading {
+    @apply text-neutral-900 font-semibold tracking-tight;
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .fade-in-scale {
+    animation: fadeInScale 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .stagger-animation {
+    animation-delay: calc(var(--stagger) * 0.1s);
+  }
+
+  /* Scroll reveal utility */
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 600ms ease, transform 600ms ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Marquee utilities for Clientele section */
+  .marquee {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .marquee__track {
+    display: flex;
+    gap: 3rem;
+    white-space: nowrap;
+    animation: marquee-left 25s linear infinite;
+  }
+
+  .marquee--reverse .marquee__track {
+    animation-name: marquee-right;
+  }
+
+  /* Fade edges for seamless look */
+  .marquee--mask::after,
+  .marquee--mask::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 48px;
+    pointer-events: none;
+  }
+
+  .marquee--mask::before {
+    left: 0;
+    background: linear-gradient(to right, hsl(var(--background)) 0%, hsl(var(--background) / 0) 100%);
+  }
+
+  .marquee--mask::after {
+    right: 0;
+    background: linear-gradient(to left, hsl(var(--background)) 0%, hsl(var(--background) / 0) 100%);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Support arbitrary pulse animation if used */
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-40%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
