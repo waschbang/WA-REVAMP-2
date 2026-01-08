@@ -506,7 +506,7 @@ export default function LifeSection() {
       }}
     >
       {/* Use 132dvh for Windows to prevent cropping, 100dvh for Mac */}
-      <div className="sticky top-0 w-full flex flex-col items-center justify-start md:justify-center md:pt-0 overflow-hidden bg-[#F4F4F4]"
+      <div className="sticky top-0 w-full flex flex-col items-center justify-center md:pt-0 overflow-hidden bg-[#F4F4F4]"
         style={{
           height: isWindows ? "139dvh" : "100dvh",
           minHeight: "100vh"
@@ -533,7 +533,7 @@ export default function LifeSection() {
 
         {/* --- Main Card Layer (Desktop & Mobile) --- */}
         <div
-          className="relative w-[260px] aspect-[1/2] md:w-full md:max-w-[380px] md:aspect-[1/2] md:mt-[2vh] z-20 mx-auto"
+          className="relative w-[240px] aspect-[1/2] md:w-full md:max-w-[380px] md:aspect-[1/2] md:mt-[2vh] z-20 mx-auto"
           style={{
             marginTop: isMobile ? "calc(-4vh + 35px)" : "calc(2vh + 35px)",
             transform: `translate3d(0, ${cardY}vh, 0)`,

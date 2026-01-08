@@ -11,7 +11,7 @@ var vite_config_default = defineConfig(({ mode }) => ({
     allowedHosts: [
       // Allow your ngrok domain
       "acrodrome-zeugmatically-coreen.ngrok-free.dev",
-        "https://deliquescent-kyle-absorbedly.ngrok-free.dev",
+      "label-cassette-match-phrases.trycloudflare.com",
       // Allow ANY future ngrok domains automatically
       "*.ngrok-free.dev",
       "*.ngrok-free.app",

@@ -13,10 +13,16 @@ export default defineConfig(({ mode }) => ({
       "acrodrome-zeugmatically-coreen.ngrok-free.dev",
       "deliquescent-kyle-absorbedly.ngrok-free.dev",
 
+      // Allow Cloudflare tunnel domain
+      "label-cassette-match-phrases.trycloudflare.com",
+
       // Allow ANY future ngrok domains automatically
       "*.ngrok-free.dev",
       "*.ngrok-free.app",
-      "*.ngrok.io"
+      "*.ngrok.io",
+
+      // Allow ANY future Cloudflare tunnel domains
+      "*.trycloudflare.com"
     ]
   },
   plugins: [react()],

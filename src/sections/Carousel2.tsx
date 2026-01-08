@@ -94,7 +94,7 @@ const Carousel2 = () => {
             const userAgent = window.navigator.userAgent.toLowerCase();
             const platform = window.navigator.platform.toLowerCase();
             setIsWindows(
-                userAgent.includes('win') || 
+                userAgent.includes('win') ||
                 platform.includes('win') ||
                 userAgent.includes('windows')
             );
@@ -127,7 +127,7 @@ const Carousel2 = () => {
 
     const cardWidth = isMobile ? 340 : 500;
     const cardHeight = isMobile ? 510 : 636;
-    const textContentHeight = isMobile ? 310 : 330;
+    const textContentHeight = isMobile ? 260 : 330;
     const gap = 32;
 
     const totalCards = cardData.length;
