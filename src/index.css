@@ -475,3 +475,13 @@
     transform: translateX(0);
   }
 }
+
+/* Carousel2 Card Hover Animation */
+.carousel-card:hover {
+  transform: translate3d(0, -20px, 0) !important;
+  box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.18) !important;
+}
+
+.carousel-card {
+  will-change: transform, box-shadow;
+}

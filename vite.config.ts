@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
       "deliquescent-kyle-absorbedly.ngrok-free.dev",
 
       // Allow Cloudflare tunnel domain
-      "label-cassette-match-phrases.trycloudflare.com",
+      "trackback-incorporated-identifying-state.trycloudflare.com",
 
       // Allow ANY future ngrok domains automatically
       "*.ngrok-free.dev",

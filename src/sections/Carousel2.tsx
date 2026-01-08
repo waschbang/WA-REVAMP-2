@@ -52,8 +52,8 @@ const cardData = [
         tag: "B2B Experience",
         tagColor: "#4ECC5E99",
         tagTextColor: "#2D2D2D",
-        title: "Streamline B2B Sales with\nWhatsApp Commerce",
-        description: "Let prospects browse catalogs, place orders,\nand track shipments within WhatsApp.\nTurn complex B2B buying into seamless commerce.",
+        title: "Streamline B2B Sales\nwith WhatsApp Commerce",
+        description: "Let prospects browse catalogs, place orders,\nand track shipments within WhatsApp. Turn\ncomplex B2B buying into seamless commerce.",
         bottomBg: "#4ECC5E",
         image: whatsappImage5,
     },
@@ -159,6 +159,7 @@ const Carousel2 = () => {
                     {cardData.map((item) => (
                         <div
                             key={item.id}
+                            className="carousel-card"
                             style={{
                                 width: `${cardWidth}px`,
                                 height: `${cardHeight}px`,
@@ -174,7 +175,9 @@ const Carousel2 = () => {
                                 WebkitTransform: "translate3d(0, 0, 0)",
                                 backfaceVisibility: "hidden",
                                 WebkitBackfaceVisibility: "hidden",
-                                contain: "layout style paint"
+                                contain: "layout style paint",
+                                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                                cursor: "pointer"
                             } as React.CSSProperties}
                         >
                             {/* Top Text Content Area - Fixed height for consistent alignment */}

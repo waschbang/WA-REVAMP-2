@@ -1,17 +1,17 @@
 "use client";
 
 // Import all assets
-import greenHash from "@/assets/images/HerosectionImgs/greenHash.png";
-import iPhone from "@/assets/images/HerosectionImgs/iPhone.png";
-import recordingImage from "@/assets/images/HerosectionImgs/recording.png";
-import rightArrow from "@/assets/images/HerosectionImgs/arrowRight.png";
-import shoesImage from "@/assets/images/HerosectionImgs/shoes.png";
-import bagsCircle from "@/assets/images/HerosectionImgs/bagsCircle.png";
-import bags from "@/assets/images/HerosectionImgs/bags.png";
-import callIcon from "@/assets/images/HerosectionImgs/call.png";
-import mobileCircle from "@/assets/images/HerosectionImgs/mobileCircle.png";
-import mobile from "@/assets/images/HerosectionImgs/mobile.png";
-import sms from "@/assets/images/HerosectionImgs/sms.png";
+import greenHash from "@/assets/images/HerosectionImgs/greenHash.webp";
+import iPhone from "@/assets/images/HerosectionImgs/iPhone.webp";
+import recordingImage from "@/assets/images/HerosectionImgs/recording.webp";
+import rightArrow from "@/assets/images/HerosectionImgs/arrowRight.webp";
+import shoesImage from "@/assets/images/HerosectionImgs/shoes.webp";
+import bagsCircle from "@/assets/images/HerosectionImgs/bagsCircle.webp";
+import bags from "@/assets/images/HerosectionImgs/bags.webp";
+import callIcon from "@/assets/images/HerosectionImgs/call.webp";
+import mobileCircle from "@/assets/images/HerosectionImgs/mobileCircle.webp";
+import mobile from "@/assets/images/HerosectionImgs/mobile.webp";
+import sms from "@/assets/images/HerosectionImgs/sms.webp";
 // Brand logos
 import levelLogo from "@/assets/levellogo.png";
 import imagineLogo from "@/assets/Imagine logo.png";
